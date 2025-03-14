@@ -104,10 +104,11 @@ router.get("/api/image/check/remove/:id", (req, res) => {
     data = JSON.parse(data);
 
     if (data[req.params.id]) {
-        fs.unlinkSync("./static" + data[req.params.id].path);
+        fs.unlinkSync(`./static/data/image/iBase/${req.params.id}${data[req.params.id].append}`);
 
+        let index = data["DataBase"].indexOf(req.params.id);
         delete data[req.params.id];
-        delete data["Database"][data["Database"].indexof("req.params.id")];
+        data["DataBase"].splice(index, 1);
         fs.writeFileSync(checkedDataPth, JSON.stringify(data, null, 2));
     }
 

@@ -7,7 +7,7 @@ $(document).ready(function () {
 
         for (var elem in data_parsed) {
             let _elem = data_parsed[elem];
-            var div = `<div class="box" id="${elem}" style="display: inline-flex; align-items: center;"><img class="imgPrev" src="${_elem.path}"><span class="title _title">From: ${_elem.name}<br/><div style="font-size: medium; font-weight: normal;">${_elem.comment}｜${_elem.time}</div></span><div class="operator"><span class="operator_position_obj operator_top" onclick="acc('${elem}')">通过</span><span class="operator_position_obj operator_bottom" onclick="del('${elem}')">驳回</span></div></div>`
+            var div = `<div class="box" id="${elem}" style="display: inline-flex; align-items: center;"><img class="imgPrev" src="/api/image/get/compress/${elem}/check"><span class="title _title">From: ${_elem.name}<br/><div style="font-size: medium; font-weight: normal;">${_elem.comment}｜${_elem.time}</div></span><div class="operator"><span class="operator_position_obj operator_top" onclick="acc('${elem}')">通过</span><span class="operator_position_obj operator_bottom" onclick="del('${elem}')">驳回</span></div></div>`
             body.insertAdjacentHTML('beforeend',div);
         }
     })
