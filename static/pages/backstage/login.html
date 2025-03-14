@@ -1,0 +1,88 @@
+<!DOCTYPE UTF-8>
+<html>
+
+<head>
+    <title>后台｜Sewepo图床</title>
+    <link rel="stylesheet" href="../../css/template.css">
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div class="fliter-container"></div>
+
+    <div class="content">
+        <span class="title">Sewepo图床后台<br />
+            <div style="font-weight: normal; font-size: medium;">欢迎, 请先登录。</div>
+        </span>
+
+        <div class="form-control">
+            <input type="text" required="" class="token">
+            <label>
+                <span>登陆密钥</span>
+            </label>
+        </div>
+
+        <div class="button" onclick="login()">确定登陆</div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var token_obj;
+
+    $(document).ready(function () {
+        token_obj = $(".token");
+
+        let cookie = document.cookie;
+        if (cookie) {
+            checkToken(getCookie("token"), function(res) {
+                if (res) {
+                    alert("您已登陆, 正在跳转");
+                    window.location.replace("/pages/backstage/image/check.html");
+                }
+            })
+        }
+    })
+
+    function login() {
+        let token = token_obj.val();
+
+        let chk = checkToken(token, function(res) {
+            if (res) {
+                alert("密钥正确, 欢迎！");
+                window.location.replace("/pages/backstage/image/check.html");
+            } else {
+                alert("密钥错误");
+            }
+        });
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+
+        return "";
+    }
+
+    function checkToken(token, callback) {
+        $.ajax({
+            type: "POST",
+            url: "/api/backstage/login",
+            data: { "token": token },
+            success: function (data) {
+                if (data.message == true) callback(true);
+                else callback(false);
+            },
+            error: function (xml, txt, err) {
+                alert("出现错误，错误信息详见控制台。");
+                console.log(err);
+            }
+        })
+    }
+</script>

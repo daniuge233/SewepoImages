@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Sewepo图床投稿</title>
+    <link rel="stylesheet" href="../css/template.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/image/submit.js"></script>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="fliter-container"></div>
+    
+    <div class="content">
+        <span class="title">Sewepo图床投稿<br />
+            <div style="font-weight: normal; font-size: medium;">此页面用于向Sewepo图床投稿图片, 请如实填写以下内容。<br />一次仅允许上传一张图片。</div>
+        </span>
+
+        <div class="form-control">
+            <input type="text" required="" class="name">
+            <label>
+                <span>姓名</span>
+            </label>
+        </div>
+
+        <div class="form-control">
+            <input type="text" required="" class="id">
+            <label>
+                <span>邀请码</span>
+            </label>
+        </div>
+
+        <div class="form-control">
+            <input type="email" required="" class="email">
+            <label>
+                <span>电子邮箱(可选)</span>
+            </label>
+        </div>
+
+        <div class="form-control">
+            <input type="text" required="" class="comment">
+            <label>
+                <span>留言(可选)</span>
+            </label>
+        </div>
+
+        <div class="file-selector">
+            <label for="file-upload" class="file-upload-label">选择文件</label>
+            <input type="file" id="file-upload" class="file-input img" accept=".jpg, .png, .jpeg" />
+        </div>
+
+        <div class="button" onclick="submit()">提交</div>
+
+    </div>
+</body>
+
+</html>

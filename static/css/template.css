@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* overflow: hidden; */
+    color: white;
+    user-select: none;
+    -webkit-user-select: none;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 3%;
+
+    z-index: 1;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 2px solid white;
+}
+
+.fliter-container {
+    z-index: -1;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("https://api.paugram.com/bing") center/cover no-repeat;
+    filter: blur(50px);
+    transform: scale(1.3);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title {
+    font-size: xx-large;
+    font-weight: bolder;
+
+    margin-bottom: 3vh;
+}
+
+.form-control {
+    position: relative;
+    margin: 0 0 5vh;
+    width: 190px;
+}
+
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #fff solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color: lightblue;
+}
+
+.form-control label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+}
+
+.form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    color: #fff;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+    color: lightblue;
+    transform: translateY(-30px);
+}
+
+.file-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 99999px;
+    width: 10vw;
+    transition: all 0.1s ease;
+    border: 2px solid white;
+    cursor: pointer;
+
+    margin-bottom: 3vh;
+}
+
+.file-upload-label {
+    font-size: 16px;
+    width: 100%;
+}
+
+.img {
+    display: none;
+}
+
+.file-selector:active {
+    transform: scale(0.93);
+    border: 2px solid lightblue;
+    color: lightblue;
+}
+
+.button {
+    width: 10vw;
+    padding: 16px;
+    border-radius: 999999px;
+    border: 2px solid white;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.button:active {
+    transform: scale(0.93);
+    border: 2px solid lightblue;
+    color: lightblue;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 3vh;
+}
+
+.checkbox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    /* border: 2px solid #6200ea; */
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.checkbox:checked::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background-color: #6200ea;
+    border-radius: 2px;
+}
+
+.checkbox:checked {
+    /* border-color: #6200ea; */
+    background-color: #f0e7ff;
+}
+
+.checkbox-label {
+    margin-left: 10px;
+    color: white;
+    user-select: none;
+}
+
+/* 自定义过渡效果 */
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-container input[type="checkbox"]:checked+.checkbox {
+    background-color: #6200ea;
+    border-color: #6200ea;
+}
+
+.box {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    align-items: center;
+    padding: 2%;
+}
