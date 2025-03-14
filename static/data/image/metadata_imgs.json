@@ -1,14 +1,3 @@
 {
-  "DataBase": [
-    "ee86ded5-c3d5-488c-b87b-beaf59beda2c"
-  ],
-  "ee86ded5-c3d5-488c-b87b-beaf59beda2c": {
-    "time": 1741392602645,
-    "name": "z1",
-    "id": "1",
-    "email": "",
-    "comment": "",
-    "path": "./static/data/image/iBase/ee86ded5-c3d5-488c-b87b-beaf59beda2c.JPG",
-    "append": ".JPG"
-  }
+  "DataBase": []
 }
